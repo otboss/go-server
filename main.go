@@ -11,14 +11,14 @@ import (
 
 func main() {
 	fmt.Println("listening on port 8080")
-	http.DefaultClient.Timeout = time.Minute * 10
+	http.DefaultClient.Timeout = time.Second * 10
 	// Routes:
 	http.HandleFunc(
 		"/",
 		middleware.PanicHandler(
-			middleware.PostRequest(
+			middleware.GetRequest(
 				middleware.RequestLimiter(
-					controller.Auth,
+					controller.Root,
 				),
 			),
 		),
