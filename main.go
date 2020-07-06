@@ -5,11 +5,13 @@ import (
 	"controller/middleware"
 	"fmt"
 	"log"
+	"model"
 	"net/http"
 	"time"
 )
 
 func main() {
+	model.Init()
 	fmt.Println("listening on port 8080")
 	http.DefaultClient.Timeout = time.Second * 10
 	// Routes:
